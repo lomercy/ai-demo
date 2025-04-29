@@ -13,12 +13,17 @@ docker run -d --name es01  -p 9200:9200 -p 9300:9300  -m 1GB docker.elastic.co/e
 # 获取密码, 默认账号elastic
 docker exec -it es01 /usr/share/elasticsearch/bin/elasticsearch-reset-password -u elastic
 
+# 获取kibana token, 默认账号kibana
 docker exec -it es01 /usr/share/elasticsearch/bin/elasticsearch-create-enrollment-token -s kibana
+
 docker pull docker.elastic.co/kibana/kibana:9.0.0
 docker run -d --name kib01 -p 5601:5601 docker.elastic.co/kibana/kibana:9.0.0
 
-eyJ2ZXIiOiI4LjE0LjAiLCJhZHIiOlsiMTcyLjE3LjAuMjo5MjAwIl0sImZnciI6IjY4YTAyMzdiZDE1OWI4NmYyYjJiYjllNWM2ZWVlN2ZmOTA3MDMxZjBlNTkzZmFkMmE1NjU0OGE0MTJlOGQ4MjIiLCJrZXkiOiJhenl5Z0pZQlNGREROTkVTYlkwYTpoMFNILWpvM3kwd0Q4cFluczBkMEdBIn0=
+# 密码
 eAMoLrpHCNK0dqzO5c3S
+
+# kibana token
+eyJ2ZXIiOiI4LjE0LjAiLCJhZHIiOlsiMTcyLjE3LjAuMjo5MjAwIl0sImZnciI6IjY4YTAyMzdiZDE1OWI4NmYyYjJiYjllNWM2ZWVlN2ZmOTA3MDMxZjBlNTkzZmFkMmE1NjU0OGE0MTJlOGQ4MjIiLCJrZXkiOiJhenl5Z0pZQlNGREROTkVTYlkwYTpoMFNILWpvM3kwd0Q4cFluczBkMEdBIn0=
 """
 from app import get_ai
 
